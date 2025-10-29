@@ -1,210 +1,370 @@
-  # Chalo JSON Schema Pdhe
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chalo JSON Schema Pdhe</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1 { border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+        h2 { color: #333; border-bottom: 1px solid #eee; padding-bottom: 3px; margin-top: 25px; }
+        h3 { color: #555; margin-top: 20px; }
+        code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
+        pre { background-color: #f8f8f8; padding: 10px; border: 1px solid #ddd; border-radius: 5px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .comment { color: #6a9955; }
+    </style>
+</head>
+<body>
 
-  This repository contains a **comprehensive JSON Schema** designed purely for **educational purposes**. The schema demonstrates nearly every major keyword from the **Draft-07** specification, providing a hands-on resource for understanding how to define, structure, and validate complex JSON data.
+    <h1># Chalo JSON Schema Pdhe</h1>
 
-  ---
+    <p>This repository contains a <strong>comprehensive JSON Schema</strong> designed purely for <strong>educational purposes</strong>. The schema demonstrates nearly every major keyword from the <strong>Draft-07</strong> specification, providing a hands-on resource for understanding how to define, structure, and validate complex JSON data.</p>
 
-  ## JSON
+    <hr>
 
-  JSON Schema is a vocabulary that allows you to **annotate** and **validate** JSON documents. It acts as a blueprint, ensuring that a piece of JSON data adheres to a specified structure, data types, and set of constraints.
+    <h2>JSON</h2>
 
-  ### 🧱 Building Blocks
+    <p>JSON Schema is a vocabulary that allows you to <strong>annotate</strong> and <strong>validate</strong> JSON documents. It acts as a blueprint, ensuring that a piece of JSON data adheres to a specified structure, data types, and set of constraints.</p>
 
-  * A schema is itself a **JSON Object** defined by curly braces (`{}`).
-  * It operates on a **key-value pair** basis.
-  * **Keywords** (like `$schema`, `type`, `properties`) are used as **keys** to apply validation rules.
+    <h3>&#x1f9f1; Building Blocks</h3>
+    <ul>
+        <li>A schema is itself a <strong>JSON Object</strong> defined by curly braces (<code>{}</code>).</li>
+        <li>It operates on a <strong>key-value pair</strong> basis.</li>
+        <li><strong>Keywords</strong> (like <code>$schema</code>, <code>type</code>, <code>properties</code>) are used as <strong>keys</strong> to apply validation rules.</li>
+    </ul>
 
-  ---
+    <hr>
 
-  ## Keywords
+    <h2>Keywords</h2>
 
-  These keywords define the context and identity of the schema:
+    <p>These keywords define the context and identity of the schema:</p>
 
-  | Keyword | Type | Purpose | Example |
-  | :--- | :--- | :--- | :--- |
-  | **`$schema`** | `string` | **Defines the JSON Schema version** (or "dialect") being used. | `"http://json-schema.org/draft-07/schema#"` |
-  | **`$id`** | `string` | A **unique identifier (URI)** for the schema. | `"https://example.com/full-manifest.schema.json"` |
-  | **`title`** | `string` | A **short, descriptive title** for the schema. | `"This is my first schema"` |
-  | **`description`** | `string` | A **detailed explanation** of the schema's purpose. | `"A complex schema..."` |
-  | **`$comment`** | `string` | Notes for schema maintainers (**ignored** by validators). | `"This is my schema..."` |
+    <table>
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Type</th>
+                <th>Purpose</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong><code>$schema</code></strong></td>
+                <td><code>string</code></td>
+                <td><strong>Defines the JSON Schema version</strong> (or "dialect") being used.</td>
+                <td><code>"http://json-schema.org/draft-07/schema#"</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>$id</code></strong></td>
+                <td><code>string</code></td>
+                <td>A <strong>unique identifier (URI)</strong> for the schema.</td>
+                <td><code>"https://example.com/full-manifest.schema.json"</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>title</code></strong></td>
+                <td><code>string</code></td>
+                <td>A <strong>short, descriptive title</strong> for the schema.</td>
+                <td><code>"This is my first schema"</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>description</code></strong></td>
+                <td><code>string</code></td>
+                <td>A <strong>detailed explanation</strong> of the schema's purpose.</td>
+                <td><code>"A complex schema..."</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>$comment</code></strong></td>
+                <td><code>string</code></td>
+                <td>Notes for schema maintainers (<strong>ignored</strong> by validators).</td>
+                <td><code>"This is my schema..."</code></td>
+            </tr>
+        </tbody>
+    </table>
 
-  The most crucial validation keyword is **`type`**, which defines the expected data type of the JSON being validated.
+    <p>The most crucial validation keyword is <strong><code>type</code></strong>, which defines the expected data type of the JSON being validated.</p>
 
-  * **Syntax:** `"type": "object"` or `"type": ["string", "null"]`
-  * **Note:** In our full example, the root instance is explicitly set to `"type": "object"`.
+    <ul>
+        <li><strong>Syntax:</strong> <code>"type": "object"</code> or <code>"type": ["string", "null"]</code></li>
+        <li><strong>Note:</strong> In our full example, the root instance is explicitly set to <code>"type": "object"</code>.</li>
+    </ul>
 
-  ---
+    <hr>
 
-  ## Data types
+    <h2>Data types</h2>
 
-  JSON Schema uses validation keywords specific to the type being defined.
+    <p>JSON Schema uses validation keywords specific to the type being defined.</p>
 
-  ### 1. Object Keywords (`type: "object"`)
+    <h3>1. Object Keywords (<code>type: "object"</code>)</h3>
 
-  | Keyword | Purpose | Example |
-  | :--- | :--- | :--- |
-  | **`properties`** | Defines the expected fields (keys) in the object, where each value is its own schema. | See `system_id` in the full schema. |
-  | **`required`** | An **array of strings** listing the properties that **must** be present. | `"required": ["system_id", "status_check"]` |
-  | **`min/maxProperties`**| Restricts the minimum/maximum number of allowed properties. | `"minProperties": 1` |
-  | **`additionalProperties`**| If `false`, prohibits any keys not listed in `properties` or `patternProperties`. | `"additionalProperties": false` |
-  | **`patternProperties`** | Allows property names to be validated using **Regular Expressions**. | `"^flag_\\d+$"` (matches keys like `flag_1`, `flag_2`, etc.) |
+    <table>
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Purpose</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong><code>properties</code></strong></td>
+                <td>Defines the expected fields (keys) in the object, where each value is its own schema.</td>
+                <td>See <code>system_id</code> in the full schema.</td>
+            </tr>
+            <tr>
+                <td><strong><code>required</code></strong></td>
+                <td>An <strong>array of strings</strong> listing the properties that <strong>must</strong> be present.</td>
+                <td><code>"required": ["system_id", "status_check"]</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>min/maxProperties</code></strong></td>
+                <td>Restricts the minimum/maximum number of allowed properties.</td>
+                <td><code>"minProperties": 1</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>additionalProperties</code></strong></td>
+                <td>If <code>false</code>, prohibits any keys not listed in <code>properties</code> or <code>patternProperties</code>.</td>
+                <td><code>"additionalProperties": false</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>patternProperties</code></strong></td>
+                <td>Allows property names to be validated using <strong>Regular Expressions</strong>.</td>
+                <td><code>"^flag_\\d+$"</code> (matches keys like <code>flag_1</code>, <code>flag_2</code>, etc.)</td>
+            </tr>
+        </tbody>
+    </table>
 
-  ### 2. Array Keywords (`type: "array"`)
+    <h3>2. Array Keywords (<code>type: "array"</code>)</h3>
 
-  | Keyword | Purpose | Example |
-  | :--- | :--- | :--- |
-  | **`items`** | The schema that **all** elements in the array must conform to. | `"items": {"type": "string"}` |
-  | **`min/maxItems`** | Restricts the size (length) of the array. | `"maxItems": 5` |
-  | **`uniqueItems`** | If `true`, every item in the array must be unique. | `"uniqueItems": true` |
-  | **`contains`** | Requires that **at least one** item in the array matches the sub-schema. | `{"const": "HIGH_PRIORITY"}` |
+    <table>
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Purpose</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong><code>items</code></strong></td>
+                <td>The schema that <strong>all</strong> elements in the array must conform to.</td>
+                <td><code>"items": {"type": "string"}</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>min/maxItems</code></strong></td>
+                <td>Restricts the size (length) of the array.</td>
+                <td><code>"maxItems": 5</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>uniqueItems</code></strong></td>
+                <td>If <code>true</code>, every item in the array must be unique.</td>
+                <td><code>"uniqueItems": true</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>contains</code></strong></td>
+                <td>Requires that <strong>at least one</strong> item in the array matches the sub-schema.</td>
+                <td><code>{"const": "HIGH_PRIORITY"}</code></td>
+            </tr>
+        </tbody>
+    </table>
 
-  ### 3. String Keywords (`type: "string"`)
+    <h3>3. String Keywords (<code>type: "string"</code>)</h3>
 
-  | Keyword | Purpose | Example |
-  | :--- | :--- | :--- |
-  | **`minLength/maxLength`**| Restricts the length of the string. | `"minLength": 8` |
-  | **`pattern`** | A **regular expression** the string value must match. | `"pattern": "^[a-f0-9]{8,36}$"` |
-  | **`format`** | Defines a **semantic constraint** (e.g., date, email, URI, UUID). | `"format": "uuid"` |
+    <table>
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Purpose</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong><code>minLength/maxLength</code></strong></td>
+                <td>Restricts the length of the string.</td>
+                <td><code>"minLength": 8</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>pattern</code></strong></td>
+                <td>A <strong>regular expression</strong> the string value must match.</td>
+                <td><code>"pattern": "^[a-f0-9]{8,36}$"</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>format</code></strong></td>
+                <td>Defines a <strong>semantic constraint</strong> (e.g., date, email, URI, UUID).</td>
+                <td><code>"format": "uuid"</code></td>
+            </tr>
+        </tbody>
+    </table>
 
-  ### 4. Numeric Keywords (`type: "number"` or `"integer"`)
+    <h3>4. Numeric Keywords (<code>type: "number"</code> or <code>"integer"</code>)</h3>
 
-  | Keyword | Purpose | Example |
-  | :--- | :--- | :--- |
-  | **`minimum/maximum`**| The inclusive lower/upper bound. | `"minimum": 1` |
-  | **`exclusiveMinimum/Maximum`**| The exclusive lower/upper bound (value must be strictly greater/less than). | `"exclusiveMaximum": 11` |
-  | **`multipleOf`** | The number must be evenly divisible by this value. | `"multipleOf": 1` |
+    <table>
+        <thead>
+            <tr>
+                <th>Keyword</th>
+                <th>Purpose</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong><code>minimum/maximum</code></strong></td>
+                <td>The inclusive lower/upper bound.</td>
+                <td><code>"minimum": 1</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>exclusiveMinimum/Maximum</code></strong></td>
+                <td>The exclusive lower/upper bound (value must be strictly greater/less than).</td>
+                <td><code>"exclusiveMaximum": 11</code></td>
+            </tr>
+            <tr>
+                <td><strong><code>multipleOf</code></strong></td>
+                <td>The number must be evenly divisible by this value.</td>
+                <td><code>"multipleOf": 1</code></td>
+            </tr>
+        </tbody>
+    </table>
 
-  ---
+    <hr>
 
-  ## Conditional Structures Present in JSON
+    <h2>Conditional Structures Present in JSON</h2>
 
-  These keywords allow for complex rules and schema reuse.
+    <p>These keywords allow for complex rules and schema reuse.</p>
 
-  ### Schema Composition
+    <h3>Schema Composition</h3>
 
-  These keywords combine multiple sub-schemas:
+    <p>These keywords combine multiple sub-schemas:</p>
+    <ul>
+        <li><strong><code>allOf</code></strong>: The data must satisfy <strong>ALL</strong> listed schemas.</li>
+        <li><strong><code>anyOf</code></strong>: The data must satisfy <strong>AT LEAST ONE</strong> listed schema.</li>
+        <li><strong><code>oneOf</code></strong>: The data must satisfy <strong>EXACTLY ONE</strong> listed schema.</li>
+        <li><strong><code>not</code></strong>: The data must <strong>NOT</strong> satisfy the listed schema.</li>
+    </ul>
 
-  * **`allOf`**: The data must satisfy **ALL** listed schemas.
-  * **`anyOf`**: The data must satisfy **AT LEAST ONE** listed schema.
-  * **`oneOf`**: The data must satisfy **EXACTLY ONE** listed schema.
-  * **`not`**: The data must **NOT** satisfy the listed schema.
+    <h3>Conditional Logic</h3>
 
-  ### Conditional Logic
+    <p>The <strong><code>if</code></strong> / <strong><code>then</code></strong> / <strong><code>else</code></strong> keywords apply validation based on a condition:</p>
+    <ul>
+        <li><strong><code>if</code></strong>: The condition (a sub-schema) to check.</li>
+        <li><strong><code>then</code></strong>: The schema to apply if the <code>if</code> condition is <strong>true</strong>.</li>
+        <li><strong><code>else</code></strong>: The schema to apply if the <code>if</code> condition is <strong>false</strong>.</li>
+    </ul>
 
-  The **`if`** / **`then`** / **`else`** keywords apply validation based on a condition:
+    <h3>Schema Reuse</h3>
+    <ul>
+        <li><strong><code>definitions</code></strong>: (or <code>$defs</code> in newer drafts) An area to define reusable sub-schemas.</li>
+        <li><strong><code>$ref</code></strong>: Used to <strong>reference</strong> a schema defined elsewhere, typically within <code>definitions</code> (e.g., <code>#/definitions/Contact</code>).</li>
+    </ul>
 
-  * **`if`**: The condition (a sub-schema) to check.
-  * **`then`**: The schema to apply if the `if` condition is **true**.
-  * **`else`**: The schema to apply if the `if` condition is **false**.
+    <hr>
 
-  ### Schema Reuse
+    <h2>A detailed schema</h2>
 
-  * **`definitions`**: (or `$defs` in newer drafts) An area to define reusable sub-schemas.
-  * **`$ref`**: Used to **reference** a schema defined elsewhere, typically within `definitions` (e.g., `#/definitions/Contact`).
+    <p>For your reference</p>
 
-  ---
+    <pre><code>{
+    &quot;$schema&quot;:&quot;<a href="http://json-schema.org/draft-07/schema#">http://json-schema.org/draft-07/schema#</a>&quot;,
+    &quot;$id&quot;:&quot;<a href="https://example.com/full-manifest.schema.json">https://example.com/full-manifest.schema.json</a>&quot;,
+    &quot;title&quot;: &quot;This is my first schema&quot;,
+    &quot;description&quot;:&quot;A complex schema which include complex object validation schema attributes as a key to properly validate things for prompt&quot;,
+    &quot;$comment&quot;: &quot;This is my schema in which i am using all attributes present in json schema&quot;,
+    
+    &quot;type&quot;:&quot;object&quot;, <span class="comment">// The root instance must be an object</span>
+    &quot;default&quot;:{}, <span class="comment">// default value if json is missing</span>
 
-  ## A detailed schema
-
-  For your reference
-
-  ```json
-  {
-    "$schema":"[http://json-schema.org/draft-07/schema#](http://json-schema.org/draft-07/schema#)",
-    "$id":"[https://example.com/full-manifest.schema.json](https://example.com/full-manifest.schema.json)",
-    "title": "This is my first schema",
-    "description":"A complex schema which include complex object validation schema attributes as a key to properly validate things for prompt",
-    "$comment": "This is my schema in which i am using all attributes present in json schema",
-  
-    "type":"object", // The root instance must be an object
-    "default":{}, // default value if json is missing
-
-    // --- Object-Specific Keywords ---
-    "minProperties": 1,
-    "maxProperties": 10,
-    "required": ["system_id", "status_check"],
-    "properties": {
-      "system_id": {
-        "type": "string",
-        "description": "Unique identifier for the system.",
-        "minLength": 8,
-        "maxLength": 36,
-        "pattern": "^[a-f0-9]{8,36}$",
-        "format": "uuid" 
+    <span class="comment">// --- Object-Specific Keywords ---</span>
+    &quot;minProperties&quot;: 1,
+    &quot;maxProperties&quot;: 10,
+    &quot;required&quot;: [&quot;system_id&quot;, &quot;status_check&quot;],
+    &quot;properties&quot;: {
+      &quot;system_id&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;description&quot;: &quot;Unique identifier for the system.&quot;,
+        &quot;minLength&quot;: 8,
+        &quot;maxLength&quot;: 36,
+        &quot;pattern&quot;: &quot;^[a-f0-9]{8,36}$&quot;,
+        &quot;format&quot;: &quot;uuid&quot; 
       },
-      "version": {
-        "type": ["number", "null"],
-        "description": "The manifest version.",
-        "const": 1.0
+      &quot;version&quot;: {
+        &quot;type&quot;: [&quot;number&quot;, &quot;null&quot;],
+        &quot;description&quot;: &quot;The manifest version.&quot;,
+        &quot;const&quot;: 1.0
       },
-      "status_check": {
-        "type": "boolean",
-        "readOnly": true,
-        "examples": [true]
+      &quot;status_check&quot;: {
+        &quot;type&quot;: &quot;boolean&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;examples&quot;: [true]
       },
-      "retry_attempts": {
-        "type": "integer",
-        "minimum": 1,
-        "exclusiveMaximum": 11,
-        "multipleOf": 1
+      &quot;retry_attempts&quot;: {
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;minimum&quot;: 1,
+        &quot;exclusiveMaximum&quot;: 11,
+        &quot;multipleOf&quot;: 1
       },
-      "parameters": {
-        "type": "array",
-        "description": "A list of configuration items.",
-        "minItems": 1,
-        "maxItems": 5,
-        "uniqueItems": true,
-        "items": { "type": "string" },
-        "contains": { "const": "HIGH_PRIORITY" }
+      &quot;parameters&quot;: {
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;description&quot;: &quot;A list of configuration items.&quot;,
+        &quot;minItems&quot;: 1,
+        &quot;maxItems&quot;: 5,
+        &quot;uniqueItems&quot;: true,
+        &quot;items&quot;: { &quot;type&quot;: &quot;string&quot; },
+        &quot;contains&quot;: { &quot;const&quot;: &quot;HIGH_PRIORITY&quot; }
       },
-      "contact_info": {
-        "$ref": "#/definitions/Contact"
+      &quot;contact_info&quot;: {
+        &quot;$ref&quot;: &quot;#/definitions/Contact&quot;
       }
     },
     
-    "patternProperties": {
-      "^flag_\\d+$": { "type": "boolean" }
+    &quot;patternProperties&quot;: {
+      &quot;^flag_\\d+$&quot;: { &quot;type&quot;: &quot;boolean&quot; }
     },
     
-    "additionalProperties": false,
+    &quot;additionalProperties&quot;: false,
     
-    // --- Composition Keywords ---
-    "allOf": [ {"minProperties": 1} ],
-    "anyOf": [ 
-      {"properties": {"system_id": {"format": "uuid"}}},
-      {"properties": {"system_id": {"format": "hostname"}}}
+    <span class="comment">// --- Composition Keywords ---</span>
+    &quot;allOf&quot;: [ {&quot;minProperties&quot;: 1} ],
+    &quot;anyOf&quot;: [ 
+      {&quot;properties&quot;: {&quot;system_id&quot;: {&quot;format&quot;: &quot;uuid&quot;}}},
+      {&quot;properties&quot;: {&quot;system_id&quot;: {&quot;format&quot;: &quot;hostname&quot;}}}
     ],
-    "oneOf": [ 
-      {"required": ["version"]},
-      {"not": {"required": ["version"]}}
+    &quot;oneOf&quot;: [ 
+      {&quot;required&quot;: [&quot;version&quot;]},
+      {&quot;not&quot;: {&quot;required&quot;: [&quot;version&quot;]}}
     ],
-    "not": { "properties": {"retry_attempts": {"minimum": 100}} },
-  
-    // --- Conditional Keywords ---
-    "if": { "properties": {"status_check": {"const": true}} },
-    "then": {
-      "properties": {"contact_info": {"required": ["email"]}},
-      "required": ["contact_info"]
+    &quot;not&quot;: { &quot;properties&quot;: {&quot;retry_attempts&quot;: {&quot;minimum&quot;: 100}} },
+    
+    <span class="comment">// --- Conditional Keywords ---</span>
+    &quot;if&quot;: { &quot;properties&quot;: {&quot;status_check&quot;: {&quot;const&quot;: true}} },
+    &quot;then&quot;: {
+      &quot;properties&quot;: {&quot;contact_info&quot;: {&quot;required&quot;: [&quot;email&quot;]}},
+      &quot;required&quot;: [&quot;contact_info&quot;]
     },
-    "else": { "properties": {"contact_info": {"required": []}} },
+    &quot;else&quot;: { &quot;properties&quot;: {&quot;contact_info&quot;: {&quot;required&quot;: []}} },
     
-    // --- Structural/Reuse Keywords ---
-    "definitions": {
-      "Contact": {
-        "type": "object",
-        "description": "A reusable schema for contact details.",
-        "properties": {
-          "name": {"type": "string"},
-          "email": {"type": "string", "format": "email", "writeOnly": true},
-          "phone": {"type": ["string", "null"]}
+    <span class="comment">// --- Structural/Reuse Keywords ---</span>
+    &quot;definitions&quot;: {
+      &quot;Contact&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;description&quot;: &quot;A reusable schema for contact details.&quot;,
+        &quot;properties&quot;: {
+          &quot;name&quot;: {&quot;type&quot;: &quot;string&quot;},
+          &quot;email&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;email&quot;, &quot;writeOnly&quot;: true},
+          &quot;phone&quot;: {&quot;type&quot;: [&quot;string&quot;, &quot;null&quot;]}
         },
-        "dependentRequired": { "name": ["email"] },
-        "dependentSchemas": { 
-          "email": {
-            "properties": {"phone": {"minLength": 10}},
-            "required": ["phone"]
+        &quot;dependentRequired&quot;: { &quot;name&quot;: [&quot;email&quot;] },
+        &quot;dependentSchemas&quot;: { 
+          &quot;email&quot;: {
+            &quot;properties&quot;: {&quot;phone&quot;: {&quot;minLength&quot;: 10}},
+            &quot;required&quot;: [&quot;phone&quot;]
           }
         }
       }
     }
-  }
+}</code></pre>
+
+</body>
+</html>
